@@ -7,13 +7,26 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  //retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    ['allure-playwright']
+    ['list'],
+    ['allure-playwright'],
+    //['playwright-html-reporter'],{
+      // //testFolder: 'tests',
+      // //title: 'OPEN CART HTML REPORT',
+      // project: 'Open Cart',
+      // release: '9.87.6',
+      // testEnvironment: 'PROD',
+      // embedAssets: true,
+      // embedAttachment: true,
+      // outputFolder: 'playwright-html-report',
+      // minifyAssets: true,
+      // startServer: false
+   // }
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -22,13 +35,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless: false,
+    headless: true,
     screenshot: 'on-first-failure',
     baseURL: 'https://naveenautomationlabs.com/opencart/index.php'
   },
   metadata: {
-    appusername:'pwtest@nal.com',
-    apppassword: 'test123'
+    appusername:'pwdec@gmail.com',
+    apppassword: 'India@2025'
   },
 
   /* Configure projects for major browsers */
