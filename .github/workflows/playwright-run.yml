@@ -146,6 +146,6 @@ jobs:
       - name: Report URLs
         run: |
           echo "Reports Published!"
-          echo "Playwright Built-in: https://github.com/nidhipr/2025-PWFramework/playwright-report/index.html"
-          echo "Playwright HTML Reporter: https://github.com/nidhipr/2025-PWFramework/playwright-html-report/index.html"
-          echo "Allure: https://github.com/nidhipr/2025-PWFramework/allure-report/index.html"
+          echo "Playwright Built-in:  https://nidhipr.github.io/2025-PWFramework/playwright-report/index.html"
+          echo "Playwright HTML Reporter:  https://nidhipr.github.io/2025-PWFramework/playwright-html-report/index.html"
+          echo "Allure:  https://nidhipr.github.io/2025-PWFramework/allure-report/index.html"
