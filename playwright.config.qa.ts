@@ -15,7 +15,7 @@ export default defineConfig({
     ['html'],
     ['list'],
     ['allure-playwright'],
-    ['playwright-html-reporter', { 
+    /*['playwright-html-reporter', { 
       testFolder: 'tests',
       title: 'OPEN CART HTML Report',
       project: 'Open Cart',
@@ -26,7 +26,7 @@ export default defineConfig({
       outputFolder: 'playwright-html-report',
       minifyAssets: true,
       startServer: false,  // Set to false for CI
-    }]
+    }]*/
   ],
   
   use: {
