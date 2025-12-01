@@ -20,7 +20,7 @@ export class LoginPage{
       this.eleUtil = new ElementUtil(page);
       this.emailId = page.locator('#input-email');
       this.password = page.locator('#input-password');
-      this.loginBtn = page.locator('input.btn.btn-primary');
+      this.loginBtn = page.getByRole('button', { name: 'Login' });
       this.warningMesg = page.locator('.alert.alert-danger.alert-dismissible');
       this.registerLink = page.locator(`//a[contains(normalize-space(), 'Register')]`);
 
@@ -39,9 +39,9 @@ export class LoginPage{
  * @param password 
  * @returns 
  */
-    async doLogin(email: string, password: string): Promise<HomePage>{
-         await this.eleUtil.fill(this.emailId, email);
-         await this.eleUtil.fill(this.password, password);
+    async doLogin(username: string,  password: string): Promise<HomePage>{
+         await this.eleUtil.fill(this.emailId,  username);
+         await this.eleUtil.fill(this.password,  password);
          await this.eleUtil.click(this.loginBtn, { force: true, timeout:5000 });
          return new HomePage(this.page);
     }

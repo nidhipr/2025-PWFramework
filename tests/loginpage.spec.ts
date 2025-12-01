@@ -14,13 +14,13 @@ test('verify valid Login @login @sanity',
         ]
    },
     async ({ homePage }) => {
-await expect(homePage.page).toHaveTitle('My Account');
+       await expect(homePage.page).toHaveTitle('My Account');
 });
 
 test('verify invalid Login ', async({ page,baseURL })=>{
     let loginPage = new LoginPage(page);
     await loginPage.goToLoginPage(baseURL);
-    await loginPage.doLogin('pwtest11@test.com','test121311');
+    await loginPage.doLogin('pwtest2211@test.com','test14521311');
     const errormesg = await loginPage.getInvalidLoginMessage();
     expect (errormesg).toContain(' Warning: No match for E-Mail Address and/or Password.');
 });

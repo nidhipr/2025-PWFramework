@@ -25,7 +25,7 @@ export class HomePage{
 
     // 3. page actions/method
     async isUserLoggedIn(): Promise<boolean> {
-        return await this.eleUtil.isVisible(this.logoutLink);
+        return await this.eleUtil.isVisible(this.logoutLink, 0);
     }
 
     async logout(): Promise<LoginPage> {

@@ -84,7 +84,7 @@ jobs:
 
       - name: 🧪 Run Tests
         run: |
-          npx playwright test tests/loginpage.spec.ts 
+          npx playwright test tests/loginpage.spec.ts
             --config=playwright.config.${{ github.event.inputs.environment }}.ts \
             --project="${{ github.event.inputs.browser }}"
         env:
@@ -96,6 +96,14 @@ jobs:
         with:
           name: playwright-report-${{ github.event.inputs.environment }}
           path: playwright-report/
+          retention-days: 30
+
+      - name: 📊 Upload Custom HTML Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-html-report-${{ github.event.inputs.environment }}
+          path: playwright-html-report/
           retention-days: 30
 
       - name: 📊 Upload Allure Results
@@ -132,6 +140,13 @@ jobs:
         with:
           name: playwright-report-${{ github.event.inputs.environment }}
           path: github-pages/${{ github.event.inputs.environment }}/playwright-report
+        continue-on-error: true
+
+      - name: 📥 Download HTML Report
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-html-report-${{ github.event.inputs.environment }}
+          path: github-pages/${{ github.event.inputs.environment }}/playwright-html-report
         continue-on-error: true
 
       - name: 📥 Download Allure Results
@@ -229,14 +244,16 @@ jobs:
           echo "============================================"
           echo "📊 REPORTS PUBLISHED SUCCESSFULLY!"
           echo "============================================"
-          echo "
+          echo ""
           echo "🔹 Environment: $ENV"
           echo "🔹 Browser: $BROWSER"
           echo ""
           echo "🏠 Main Dashboard:"
-          echo "   https://naveenanimation20.github.io/June2025PWFramework/"
+          echo "   https://nidhipr.github.io/2025-PWFramework/"
           echo ""
           echo "📊 ${ENV^^} Reports:"
-          echo "   Playwright:  https://nidhipr.github.io/2025-PWFramework/${ENV}/playwright-report/index.html"
-          echo "   Allure:      https://nidhipr.github.io/2025-PWFramework/${ENV}/allure-report/index.html"
+          echo "   Playwright: https://nidhipr.github.io/2025-PWFramework/${ENV}/playwright-report/index.html"
+          echo "   HTML:       https://nidhipr.github.io/2025-PWFramework/${ENV}/playwright-html-report/index.html"
+          echo "   Allure:     https://nidhipr.github.io/2025-PWFramework/${ENV}/allure-report/index.html"
+          echo ""
           echo "============================================"
