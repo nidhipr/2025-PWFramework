@@ -1,5 +1,4 @@
 import { expect,test } from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
 import fs from 'fs';
@@ -14,27 +13,27 @@ type RegData = {
     subscribeNewsletter: string
 }
 
-let fileContent = fs.readFileSync('./data/register.csv', 'utf-8');
-let registerationData:RegData[]  = parse(fileContent, {
+const fileContent = fs.readFileSync('./data/register.csv', 'utf-8');
+const registerationData:RegData[]  = parse(fileContent, {
     columns: true,
     skip_empty_lines: true
 });
 
-for (let user of registerationData) {
+for (const user of registerationData) {
 
 test(`Verify user is able to Register ${user.firstName}`, async ({ page,baseURL }) => {
-let loginPage = new LoginPage(page);
+const loginPage = new LoginPage(page);
 await loginPage.goToLoginPage(baseURL);
-let registerPage: RegisterPage = await loginPage.navigateToRegisterPage();
-let isUserRegistered: boolean = await registerPage.registerUser(
+const registerPage: RegisterPage = await loginPage.navigateToRegisterPage();
+const isUserRegistered: boolean = await registerPage.registerUser(
     user.firstName,user.lastName,getRandomEmail(),user.telephone,
 user.password,user.subscribeNewsletter);
 expect(isUserRegistered).toBeTruthy();
-})  
+}) ; 
 
 }
 function getRandomEmail(): string {
-   let randomValue = Math.random().toString(36).substring(2,9);
+   const randomValue = Math.random().toString(36).substring(2,9);
    return `auto_${randomValue}@nal.com`;
 }
 

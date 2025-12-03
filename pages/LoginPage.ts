@@ -22,7 +22,7 @@ export class LoginPage{
       this.password = page.locator('#input-password');
       this.loginBtn = page.getByRole('button', { name: 'Login' });
       this.warningMesg = page.locator('.alert.alert-danger.alert-dismissible');
-      this.registerLink = page.locator(`//a[contains(normalize-space(), 'Register')]`);
+      this.registerLink = page.locator('//a[contains(normalize-space(), "Register")]');
 
     }
 

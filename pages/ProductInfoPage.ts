@@ -1,6 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { ElementUtil } from '../utils/ElementUtil';
-import { LoginPage } from '../pages/LoginPage';
+
 
 export class ProductInfoPage{
 
@@ -20,8 +20,8 @@ export class ProductInfoPage{
       this.eleUtil = new ElementUtil(page);
       this.header = page.locator('h1');
       this.imageCount = page.locator(' div#content img');
-      this.productMetaData = page.locator(`(//div[@id = 'content']//ul[@class = 'list-unstyled'])[1]/li`);
-      this.productPriceData = page.locator(`(//div[@id = 'content']//ul[@class = 'list-unstyled'])[2]/li`);
+      this.productMetaData = page.locator('(//div[@id = "content"]//ul[@class = "list-unstyled"])[1]/li');
+      this.productPriceData = page.locator('(//div[@id = "content"]//ul[@class = "list-unstyled"])[2]/li');
       
     }
 
@@ -57,20 +57,20 @@ export class ProductInfoPage{
     }
 
     async getProductMetaData(){
-        let productMetaData: string[] = await this.productMetaData.allInnerTexts();
-         for(let meta of productMetaData){
-        let metadata: string[] = meta.split(':');
-        let metakey = metadata[0].trim();
-        let metavalue = metadata[1].trim();
+        const productMetaData: string[] = await this.productMetaData.allInnerTexts();
+         for(const meta of productMetaData){
+        const metadata: string[] = meta.split(':');
+        const metakey = metadata[0].trim();
+        const metavalue = metadata[1].trim();
         this.productMap.set(metakey,metavalue);
 }
  }
 
 
     async getproductPriceData(){
-     let productPricing: string[] = await this.productPriceData.allInnerTexts();
-      let productPrice = productPricing[0].trim();
-      let prodExtax = productPricing[1].split(':')[1].trim();
+     const productPricing: string[] = await this.productPriceData.allInnerTexts();
+     const productPrice = productPricing[0].trim();
+     const prodExtax = productPricing[1].split(':')[1].trim();
       this.productMap.set('price', productPrice);
       this.productMap.set('extraprice',prodExtax);
     }

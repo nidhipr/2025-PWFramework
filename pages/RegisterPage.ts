@@ -1,4 +1,4 @@
-import { test,expect, Locator, Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { ElementUtil} from '../utils/ElementUtil';
 
 export class RegisterPage{
@@ -30,7 +30,7 @@ export class RegisterPage{
       this.confirmPassword = page.getByLabel('Password Confirm');
       this.newsletterYes = page.getByLabel('Yes');
       this.newsletterNo = page.getByLabel('No');
-      this.ppCheckBox = page.locator(`//input[@name='agree']`);
+      this.ppCheckBox = page.locator('//input[@name="agree"]');
       this.continueButton = page.getByRole('button', { name: 'Continue' });
       this.successMess = page.getByText('Your Account Has Been Created!', { exact:  true});
      }

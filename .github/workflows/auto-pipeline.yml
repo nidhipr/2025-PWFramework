@@ -140,7 +140,7 @@ jobs:
           rm -rf allure-results playwright-report playwright-html-report test-results
 
       - name: 🧪 Run DEV tests
-        run: npx playwright test --grep "@sample" --config=playwright.config.dev.ts
+        run: npx playwright test --grep "@login" --config=playwright.config.dev.ts
         env:
           CI: true
           ALLURE_ENVIRONMENT: DEV
@@ -237,7 +237,7 @@ jobs:
           rm -rf allure-results playwright-report playwright-html-report test-results
 
       - name: 🧪 Run QA tests
-        run: npx playwright test --grep "@sample" --config=playwright.config.qa.ts
+        run: npx playwright test --grep "@login" --config=playwright.config.qa.ts
         env:
           CI: true
           ALLURE_ENVIRONMENT: QA
@@ -335,7 +335,7 @@ jobs:
           rm -rf allure-results playwright-report playwright-html-report test-results
 
       - name: 🧪 Run STAGE tests
-        run: npx playwright test --grep "@sample" --config=playwright.config.stage.ts
+        run: npx playwright test --grep "@login" --config=playwright.config.stage.ts
         env:
           CI: true
           ALLURE_ENVIRONMENT: STAGE
@@ -433,7 +433,7 @@ jobs:
           rm -rf allure-results playwright-report playwright-html-report test-results
 
       - name: 🧪 Run PROD tests
-        run: npx playwright test --grep "@sample" --config=playwright.config.prod.ts
+        run: npx playwright test --grep "@login" --config=playwright.config.prod.ts
         env:
           CI: true
           ALLURE_ENVIRONMENT: PROD
@@ -873,7 +873,7 @@ jobs:
                       "type": "section",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "*📊 View Reports:*\n<https://naveenanimation20.github.io/June2025PWFramework/|Test Reports Dashboard>"
+                        "text": "*📊 View Reports:*\n< https://nidhipr.github.io/2025-PWFramework/|Test Reports Dashboard>"
                       }
                     },
                     {
@@ -967,16 +967,16 @@ jobs:
 
                   <h3>📊 View Reports</h3>
                   <p>
-                    <a href="https://naveenanimation20.github.io/June2025PWFramework/" class="btn">📊 Reports Dashboard</a>
+                    <a href=" https://nidhipr.github.io/2025-PWFramework/" class="btn">📊 Reports Dashboard</a>
                     <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" class="btn">🔗 View Workflow Run</a>
                   </p>
 
                   <h4>Individual Environment Reports:</h4>
                   <ul>
-                    <li><strong>DEV:</strong> <a href="https://naveenanimation20.github.io/June2025PWFramework/dev/allure-report/">Allure</a> | <a href="https://naveenanimation20.github.io/June2025PWFramework/dev/playwright-report/">Playwright</a></li>
-                    <li><strong>QA:</strong> <a href="https://naveenanimation20.github.io/June2025PWFramework/qa/allure-report/">Allure</a> | <a href="https://naveenanimation20.github.io/June2025PWFramework/qa/playwright-report/">Playwright</a></li>
-                    <li><strong>STAGE:</strong> <a href="https://naveenanimation20.github.io/June2025PWFramework/stage/allure-report/">Allure</a> | <a href="https://naveenanimation20.github.io/June2025PWFramework/stage/playwright-report/">Playwright</a></li>
-                    <li><strong>PROD:</strong> <a href="https://naveenanimation20.github.io/June2025PWFramework/prod/allure-report/">Allure</a> | <a href="https://naveenanimation20.github.io/June2025PWFramework/prod/playwright-report/">Playwright</a></li>
+                    <li><strong>DEV:</strong> <a href="https://nidhipr.github.io/2025-PWFramework/dev/allure-report/">Allure</a> | <a href=" https://nidhipr.github.io/2025-PWFramework/dev/playwright-report/">Playwright</a></li>
+                    <li><strong>QA:</strong> <a href="https://nidhipr.github.io/2025-PWFramework/qa/allure-report/">Allure</a> | <a href=" https://nidhipr.github.io/2025-PWFramework/qa/playwright-report/">Playwright</a></li>
+                    <li><strong>STAGE:</strong> <a href="https://nidhipr.github.io/2025-PWFramework/stage/allure-report/">Allure</a> | <a href=" https://nidhipr.github.io/2025-PWFramework/stage/playwright-report/">Playwright</a></li>
+                    <li><strong>PROD:</strong> <a href="https://nidhipr.github.io/2025-PWFramework/prod/allure-report/">Allure</a> | <a href="https://nidhipr.github.io/2025-PWFramework/prod/playwright-report/">Playwright</a></li>
                   </ul>
                 </div>
                 <div class="footer">

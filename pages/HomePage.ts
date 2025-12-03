@@ -20,7 +20,7 @@ export class HomePage{
       this.logoutLink = page.getByRole('link', { name: 'Logout'});
       this.loginLink = page.getByRole('link', { name: 'Login'});
       this.search =page.getByRole('textbox',{ name: 'search'});
-      this.searchIcon = page.locator(`#search > span.input-group-btn > button.btn`);
+      this.searchIcon = page.locator('#search > span.input-group-btn > button.btn');
     }
 
     // 3. page actions/method
@@ -35,7 +35,7 @@ export class HomePage{
     }
 
     async doSearch(searchKey: string) {
-console.log(`search key : {searchKey}`);
+console.log('search key : {searchKey}');
 await this.eleUtil.fill(this.search,searchKey);
 await this.eleUtil.click(this.searchIcon);
 return new ResultsPage(this.page);

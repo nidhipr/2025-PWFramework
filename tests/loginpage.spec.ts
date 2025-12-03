@@ -18,7 +18,7 @@ test('verify valid Login @login @sanity',
 });
 
 test('verify invalid Login ', async({ page,baseURL })=>{
-    let loginPage = new LoginPage(page);
+    const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage(baseURL);
     await loginPage.doLogin('pwtest2211@test.com','test14521311');
     const errormesg = await loginPage.getInvalidLoginMessage();
